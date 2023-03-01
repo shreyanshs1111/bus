@@ -1,5 +1,7 @@
 package org.antwalk.controller;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.antwalk.entity.Bus;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/bus")
@@ -62,4 +66,14 @@ public class BusController {
 		return "Id does not exist";
 		
 	}
+
+	@GetMapping("/getByRouteId/{routeId}")
+	public List<Bus> getBusesByRouteId(@PathVariable Long routeId) {
+		List<Bus> buses = new ArrayList<>();
+		buses.add(new Bus(1, 20, 10, null, null, null));
+		buses.add(new Bus(1, 20, 0, null, null, null));
+		
+		return buses;
+	}
+	
 }

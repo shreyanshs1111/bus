@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/stop")
@@ -62,4 +63,11 @@ public class StopController {
 		return "Id does not exist";
 		
 	}
+
+	@GetMapping(value="/stopform")
+	public ModelAndView postMethodName() {
+		ModelAndView modelAndView = new ModelAndView("stopForm");		
+		return modelAndView;
+	}
+	
 }

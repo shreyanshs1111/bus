@@ -79,7 +79,8 @@ public class ArrivalTimeController {
 
 	/* Rest APIs to serve business logic */
 
-	@GetMapping("/getallroutes/{stopId}")
+	// get all routes as list of stops which have the stop with stopId
+	@GetMapping("/getallroutes/{stopId}") 
 	public List<List<Stop>> getRoutesByStopId(@PathVariable long stopId){
 		List<Stop> stops1 = new ArrayList(); // temporary list of stops. to be fetched
 		stops1.add(new Stop(1, "Stop1"));

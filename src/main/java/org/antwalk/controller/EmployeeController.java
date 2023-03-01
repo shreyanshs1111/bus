@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.antwalk.entity.Bus;
 import org.antwalk.entity.Stop;
 import org.antwalk.entity.Employee;
+import org.antwalk.repository.BusRepo;
 import org.antwalk.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +25,9 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeRepo empRepo;
+	
+	@Autowired
+	BusRepo busRepo;
 
 	@PostMapping("/insert")
 	public Employee insert(@RequestBody Employee e) {
@@ -97,6 +101,11 @@ public class EmployeeController {
 
 		modelAndView.addObject("stops", stops);
 		return modelAndView;
+	}
+
+	@GetMapping("/bookbus/{busId}")
+	public void bookBusById(@PathVariable Long busId){
+		
 	}
 
 }
